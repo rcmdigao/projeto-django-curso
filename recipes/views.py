@@ -7,9 +7,3 @@ def home(request):
         request, 'recipes/home.html', 
         context={'name':'Rodrigo Cunha Machado'}
         )
-
-def sobre(request):
-    return HttpResponse('Quem Somos')
-
-def contato(request):
-    return HttpResponse('Fale Conosco')
