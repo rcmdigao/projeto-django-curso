@@ -1,21 +1,9 @@
-{% include 'recipes/partials/head.html' %}
-
-<body>
-    {% include 'recipes/partials/header.html' %}
-    {% include 'recipes/partials/search.html' %}
-
-    <main class="main-content-container">
+{% extends 'global/base.html' %}
+{% block titulo %} Home |  Receitas{% endblock titulo %}
+{% block conteudo %}
         <div class="main-content main-content-list container">
-{% include 'recipes/partials/recipes.html' %}
-{% include 'recipes/partials/recipes.html' %}
-{% include 'recipes/partials/recipes.html' %}
-{% include 'recipes/partials/recipes.html' %}
-{% include 'recipes/partials/recipes.html' %}
-{% include 'recipes/partials/recipes.html' %}
-
+            {% for recipe in recipes %} 
+                {% include 'recipes/partials/recipes.html'%}
+            {% endfor %}
         </div>
-    </main>
-    {% include 'recipes/partials/footer.html' %}
-</body>
-
-</html>
+{% endblock conteudo %}

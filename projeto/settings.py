@@ -132,3 +132,7 @@ STATICFILES_DIRS = [
 # Diretorio de arquivos estaticos compilados
 # comando: python manage.py collectstatic
 STATIC_ROOT = BASE_DIR / 'static'
+
+# Diretorio de arquivos de media
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'

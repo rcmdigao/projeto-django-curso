@@ -14,11 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import include, path 
-
+from django.contrib import admin #importa o modulo admin para configurar o admin do django
+from django.urls import include, path #importa o modulo include para incluir as urls de outras apps e o modulo path para definir as urls da app
+from django.conf.urls.static import static #importa o modulo static para adicionar as urls de media para o servidor de desenvolvimento
+from django.conf import settings #importa o modulo settings para configurar as urls de media
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('recipes.urls')), # / + Nome APP.urls
 ]
+
+# Adiciona as urls de media para o servidor de desenvolvimento
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Adiciona as urls de static para o servidor de desenvolvimento
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
